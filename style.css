@@ -7,21 +7,24 @@
 
 
 :root {
-      --main: rgb(208, 27, 240);  
+      --main: rgb(233, 161, 67);  
       --secondary: antiquewhite;
 
 }
 thead, tbody {
     font-size: .8em;
 }
-h2 {
-    font-size: 24px;   
+
+h1, h2 {
     color: var(--main);
+    margin-bottom: 1em;
+}
+h2 {
     margin-top: 1.5em;
 }
 
 button {
-    color: black;
+    color: white;
     background-color: antiquewhite;
     padding: 5px 10px;
     border-radius: 10px;
@@ -29,6 +32,7 @@ button {
 }
 
 button:hover {
+    color: var(--main);
     cursor: pointer;
     transform: scale(1.1);
     transition: ease 2s cubic-bezier(0.075, 0.82, 0.165, 1);
