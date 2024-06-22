@@ -11,6 +11,21 @@
       --secondary: antiquewhite;
 
 }
+
+.expense-tracker {
+    z-index: 1;
+}
+.background {
+    background-image: url('/asset/10633-istockgetty-images-plusindysystem.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    z-index: 9999;
+    opacity: .7;
+    
+}
 thead, tbody {
     font-size: .8em;
 }
@@ -42,4 +57,9 @@ button:hover {
     cursor: pointer;
     transform: scale(1.1);
     transition: ease 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+#expensesTable {
+    max-width: 720px;
 }

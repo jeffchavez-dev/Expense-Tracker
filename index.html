@@ -15,91 +15,98 @@
     </style>
 </head>
 <body>
-    <h1>Expense Tracker</h1>
-    <blockquote>“One who is faithful in a very little is also faithful in much, and one who is dishonest in a very little is also dishonest in much. —Luke 16:10</blockquote>
-    <div class="form-control">
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="Food">🍔 Food</option>
-            <option value="Car">Car</option>
-            <option value="House">House</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Card">Card</option>
-            <option value="Other">Other</option>
-        </select>
+
+    <div class="background"></div>
+
+    <div class="expense-tracker">
+                <h1>Expense Tracker</h1>
+            
+            <blockquote>“One who is faithful in a very little is also faithful in much, and one who is dishonest in a very little is also dishonest in much. —Luke 16:10</blockquote>
+            <div class="form-control">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="Food">🍔 Food</option>
+                    <option value="Car">Car</option>
+                    <option value="House">House</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Card">Card</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="description">Description:</label>
+                <input type="text" id="description">
+            </div>
+            <div class="form-control">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount">
+            </div>
+            <button onclick="addExpense()">Add Expense</button>
+            
+            <h2>📅Filter by Month</h2>
+            <div class="form-control">
+                <label for="monthFilter">Month:</label>
+                <select id="monthFilter" onchange="loadExpenses()">
+                    <option value="all">All</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            
+            <h2>Expenses</h2>
+            <table id="expensesTable">
+                <div>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </div>
+                <tbody></tbody>
+            </table>
+            <h2>₱  Total Expenses: <span id="totalExpenses">0</span></h2>
+            <h2>Budget per Category</h2>
+            <div class="form-control">
+                <label for="foodBudget">🍔Food:</label>
+                <input type="number" id="foodBudget" class="budget-input">
+            </div>
+            <div class="form-control">
+                <label for="carBudget">🚗Car:</label>
+                <input type="number" id="carBudget" class="budget-input">
+            </div>
+            <div class="form-control">
+                <label for="houseBudget">🏠House:</label>
+                <input type="number" id="houseBudget" class="budget-input">
+            </div>
+            <div class="form-control">
+                <label for="entertainmentBudget">🎥Entertainment:</label>
+                <input type="number" id="entertainmentBudget" class="budget-input">
+            </div>
+            <div class="form-control">
+                <label for="cardBudget">💳 Card:</label>
+                <input type="number" id="cardBudget" class="card-input">
+            </div>
+            <div class="form-control">
+                <label for="otherBudget">Other:</label>
+                <input type="number" id="otherBudget" class="budget-input">
+            </div>
+            <button onclick="saveBudgets()">Save Budgets</button>
+            <h2>💰Budget Status</h2>
+            <div id="budgetStatus"></div>
     </div>
-    <div class="form-control">
-        <label for="description">Description:</label>
-        <input type="text" id="description">
-    </div>
-    <div class="form-control">
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount">
-    </div>
-    <button onclick="addExpense()">Add Expense</button>
     
-    <h2>📅Filter by Month</h2>
-    <div class="form-control">
-        <label for="monthFilter">Month:</label>
-        <select id="monthFilter" onchange="loadExpenses()">
-            <option value="all">All</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-        </select>
-    </div>
-    
-    <h2>Expenses</h2>
-    <table id="expensesTable">
-        <div>
-            <tr>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>Action</th>
-            </tr>
-        </div>
-        <tbody></tbody>
-    </table>
-    <h2>₱  Total Expenses: <span id="totalExpenses">0</span></h2>
-    <h2>Budget per Category</h2>
-    <div class="form-control">
-        <label for="foodBudget">🍔Food:</label>
-        <input type="number" id="foodBudget" class="budget-input">
-    </div>
-    <div class="form-control">
-        <label for="carBudget">🚗Car:</label>
-        <input type="number" id="carBudget" class="budget-input">
-    </div>
-    <div class="form-control">
-        <label for="houseBudget">🏠House:</label>
-        <input type="number" id="houseBudget" class="budget-input">
-    </div>
-    <div class="form-control">
-        <label for="entertainmentBudget">🎥Entertainment:</label>
-        <input type="number" id="entertainmentBudget" class="budget-input">
-    </div>
-    <div class="form-control">
-        <label for="cardBudget">💳 Card:</label>
-        <input type="number" id="cardBudget" class="card-input">
-    </div>
-    <div class="form-control">
-        <label for="otherBudget">Other:</label>
-        <input type="number" id="otherBudget" class="budget-input">
-    </div>
-    <button onclick="saveBudgets()">Save Budgets</button>
-    <h2>💰Budget Status</h2>
-    <div id="budgetStatus"></div>
     <script src="script.js"></script>
 </body>
 </html>
