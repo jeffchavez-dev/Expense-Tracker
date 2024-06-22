@@ -11,8 +11,8 @@
       --secondary: antiquewhite;
 
 }
-body {
-
+tbody {
+    font-size: .8em;
 }
 h2 {
     font-size: 24px;   
