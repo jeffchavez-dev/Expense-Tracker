@@ -20,7 +20,7 @@
         <select id="category">
             <option value="Food">Food</option>
             <option value="Car">Car</option>
-            <option value="House">House</option>
+            <option value="House-Expenses">House Expenses</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Other">Other</option>
         </select>
@@ -47,6 +47,28 @@
         </thead>
         <tbody></tbody>
     </table>
+
+    <h2>Filter by Month</h2>
+    <div class="form-control">
+        <label for="monthFilter">Month:</label>
+        <select id="monthFilter" onchange="loadExpenses()">
+            <option value="all">All</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+    </div>
+
+
     <h2>Total Expenses: <span id="totalExpenses">0</span></h2>
     <h2>Budget per Category</h2>
     <div class="form-control">
@@ -58,7 +80,7 @@
         <input type="number" id="carBudget" class="budget-input">
     </div>
     <div class="form-control">
-        <label for="houseBudget">House:</label>
+        <label for="houseBudget">House Expenses:</label>
         <input type="number" id="houseBudget" class="budget-input">
     </div>
     <div class="form-control">

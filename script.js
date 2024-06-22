@@ -59,7 +59,7 @@ function saveBudgets() {
     const budgets = {
         Food: parseFloat(document.getElementById('foodBudget').value) || 0,
         Car: parseFloat(document.getElementById('carBudget').value) || 0,
-        House: parseFloat(document.getElementById('houseBudget').value) || 0,
+        "House Expenses" : parseFloat(document.getElementById('houseBudget').value) || 0,
         Entertainment: parseFloat(document.getElementById('entertainmentBudget').value) || 0,
         Other: parseFloat(document.getElementById('otherBudget').value) || 0,
     };
@@ -84,7 +84,7 @@ function updateBudgetStatus() {
     const budgetStatus = {
         Food: 0,
         Car: 0,
-        House: 0,
+        "House Expenses" : 0,
         Entertainment: 0,
         Other: 0,
     };
