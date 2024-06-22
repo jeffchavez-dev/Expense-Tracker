@@ -67,6 +67,7 @@ function saveBudgets() {
         Car: parseFloat(document.getElementById('carBudget').value) || 0,
         House: parseFloat(document.getElementById('houseBudget').value) || 0,
         Entertainment: parseFloat(document.getElementById('entertainmentBudget').value) || 0,
+        Card: parseFloat(document.getElementById('cardBudget').value) || 0,
         Other: parseFloat(document.getElementById('otherBudget').value) || 0,
     };
     localStorage.setItem('budgets', JSON.stringify(budgets));
@@ -79,6 +80,7 @@ function loadBudgets() {
     document.getElementById('carBudget').value = budgets.Car || 0;
     document.getElementById('houseBudget').value = budgets.House || 0;
     document.getElementById('entertainmentBudget').value = budgets.Entertainment || 0;
+    document.getElementById('cardBudget').value = budgets.Card || 0;
     document.getElementById('otherBudget').value = budgets.Other || 0;
 }
 
@@ -91,6 +93,7 @@ function updateBudgetStatus(filteredExpenses) {
         Car: 0,
         House: 0,
         Entertainment: 0,
+        Card: 0,
         Other: 0,
     };
 
