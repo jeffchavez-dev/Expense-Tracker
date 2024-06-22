@@ -30,8 +30,14 @@ function loadExpenses() {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
 
+    const monthFilter = document.getElementById('monthFilter').value;
+    const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
+        const expenseMonth = new Date(expense.date).getMonth() + 1;
+        return expenseMonth == monthFilter;
+    });
+
     let total = 0;
-    expenses.forEach((expense, index) => {
+    filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
         row.insertCell(0).textContent = expense.date;
         row.insertCell(1).textContent = expense.category;
@@ -45,7 +51,7 @@ function loadExpenses() {
     });
 
     document.getElementById('totalExpenses').textContent = total.toFixed(2);
-    updateBudgetStatus();
+    updateBudgetStatus(filteredExpenses);
 }
 
 function deleteExpense(index) {
@@ -59,12 +65,12 @@ function saveBudgets() {
     const budgets = {
         Food: parseFloat(document.getElementById('foodBudget').value) || 0,
         Car: parseFloat(document.getElementById('carBudget').value) || 0,
-        "House Expenses" : parseFloat(document.getElementById('houseBudget').value) || 0,
+        House: parseFloat(document.getElementById('houseBudget').value) || 0,
         Entertainment: parseFloat(document.getElementById('entertainmentBudget').value) || 0,
         Other: parseFloat(document.getElementById('otherBudget').value) || 0,
     };
     localStorage.setItem('budgets', JSON.stringify(budgets));
-    updateBudgetStatus();
+    loadExpenses();
 }
 
 function loadBudgets() {
@@ -74,17 +80,16 @@ function loadBudgets() {
     document.getElementById('houseBudget').value = budgets.House || 0;
     document.getElementById('entertainmentBudget').value = budgets.Entertainment || 0;
     document.getElementById('otherBudget').value = budgets.Other || 0;
-    updateBudgetStatus();
 }
 
-function updateBudgetStatus() {
-    const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+function updateBudgetStatus(filteredExpenses) {
+    const expenses = filteredExpenses || JSON.parse(localStorage.getItem('expenses')) || [];
     const budgets = JSON.parse(localStorage.getItem('budgets')) || {};
 
     const budgetStatus = {
         Food: 0,
         Car: 0,
-        "House Expenses" : 0,
+        House: 0,
         Entertainment: 0,
         Other: 0,
     };
