@@ -33,6 +33,7 @@ function loadExpenses() {
     const monthFilter = document.getElementById('monthFilter').value;
     const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
+        console.log(expenseMonth)
         return expenseMonth == monthFilter;
     });
 
