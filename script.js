@@ -36,7 +36,7 @@ function loadExpenses() {
         console.log(expenseMonth)
         return expenseMonth == monthFilter;
     });
-
+    alert(monthFilter)
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
