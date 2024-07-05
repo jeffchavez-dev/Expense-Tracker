@@ -25,18 +25,27 @@ function addExpense() {
     loadExpenses();
 }
 
+const itemFilter = document.getElementById('itemFilter')
+console.log(itemFilter)
+
+itemFilter.onchange = () => {
+    const selectedItem = document.getElementById('itemFilter').value;
+    console.log('Selected item:', selectedItem);
+    loadExpenses();
+  }
+
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
 
-    const itemFilter = document.getElementById('itemFilter').value;
+   
 
     const monthFilter = document.getElementById('monthFilter').value;
     const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
         console.log(expenseMonth)
-        return expenseMonth == monthFilter && expense.category === itemFilter || itemFilter === 'all';;
+        return expenseMonth == monthFilter && expense.category === itemFilter || itemFilter === 'all';
     });
     // alert(monthFilter)
     let total = 0;
