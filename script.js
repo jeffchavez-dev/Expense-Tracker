@@ -30,6 +30,8 @@ function loadExpenses() {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
 
+    const itemFilter = document.getElementById('itemFilter').value;
+
     const monthFilter = document.getElementById('monthFilter').value;
     const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
