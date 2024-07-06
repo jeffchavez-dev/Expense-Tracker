@@ -25,20 +25,19 @@ function addExpense() {
     loadExpenses();
 }
 
-const itemFilter = document.getElementById('itemFilter')
-console.log(itemFilter)
 
-itemFilter.onchange = () => {
-    const selectedItem = document.getElementById('itemFilter').value;
-    console.log('Selected item:', selectedItem);
-    loadExpenses();
-  }
 
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
     
+
+    const itemFilter = document.getElementById('itemFilter').value
+    console.log(itemFilter)
+
+    
+  }
     /*const monthFilter = document.getElementById('monthFilter').value;
     const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
@@ -51,7 +50,7 @@ function loadExpenses() {
     const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
         return expense.category == itemFilter;
     })
-    
+
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
