@@ -50,21 +50,6 @@ function loadExpenses() {
         });
       }
 
-    
-    /*const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
-        const expenseMonth = new Date(expense.date).getMonth() + 1;
-        console.log(expenseMonth)
-        return expenseMonth == monthFilter;
-    });
-    
-    const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
-        
-        const expenseMonth = new Date(expense.date).getMonth() + 1;
-        alert(expenseMonth)
-        return expense.category == itemFilter;
-    })
-    */
-
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
     let total = 0;
