@@ -42,12 +42,11 @@ function loadExpenses() {
 
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
-    const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
+    /*const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
         console.log(expenseMonth)
         return expenseMonth == monthFilter;
-    });
-    // alert(monthFilter)
+    });*/
 
     
     const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
