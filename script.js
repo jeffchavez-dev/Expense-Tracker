@@ -55,7 +55,15 @@ function loadExpenses() {
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
-        row.insertCell(0).textContent = expense.date;
+
+        // Format the date
+        const dateObject = new Date(expense.date);
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];  
+        const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
+
+
+        row.insertCell(0).textContent = formattedDate;
         row.insertCell(1).textContent = expense.category;
         row.insertCell(2).textContent = expense.description;
         row.insertCell(3).textContent = expense.amount;
