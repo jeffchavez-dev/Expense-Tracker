@@ -46,8 +46,7 @@ function loadExpenses() {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
         console.log(expenseMonth)
         return expenseMonth == monthFilter;
-    });*/
-
+    });
     
     const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
         
@@ -55,6 +54,9 @@ function loadExpenses() {
         alert(expenseMonth)
         return expense.category == itemFilter;
     })
+    */
+
+    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
