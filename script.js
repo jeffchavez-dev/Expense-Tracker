@@ -63,7 +63,7 @@ function loadExpenses() {
         const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
 
 
-        row.insertCell(0).textContent = formattedDate;
+        row.insertCell(0).textContent = expense.date;
         row.insertCell(1).textContent = expense.category;
         row.insertCell(2).textContent = expense.description;
         row.insertCell(3).textContent = expense.amount;
