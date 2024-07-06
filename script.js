@@ -25,7 +25,11 @@ function addExpense() {
     loadExpenses();
 }
 
-
+document.getElementById('clearFiltersButton').onclick = () => {
+    document.getElementById('monthFilter').value = 'all';
+    document.getElementById('itemFilter').value = 'all';
+    loadExpenses(); // Call loadExpenses to re-render with no filters
+  }
 
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
