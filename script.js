@@ -32,10 +32,15 @@ function loadExpenses() {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
     
+    function getFilteredExpenses(monthFilter, itemFilter) {
+        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        return monthFilter === 'all' ? expenses : expenses.filter(expense => {
+          const expenseMonth = new Date(expense.date).getMonth() + 1;
+          return expenseMonth == monthFilter && expense.category === itemFilter && itemFilter !== 'all';
+        });
+      }
 
     const itemFilter = document.getElementById('itemFilter').value
-    console.log(itemFilter)
-
     const monthFilter = document.getElementById('monthFilter').value;
     const filteredExpenses = monthFilter === 'all' ? expenses : expenses.filter(expense => {
         const expenseMonth = new Date(expense.date).getMonth() + 1;
@@ -45,12 +50,12 @@ function loadExpenses() {
     // alert(monthFilter)
 
     
-    // const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
+    const filteredExpenses = itemFilter === 'all' ? expenses : expenses.filter(expense => {
         
-    //     const expenseMonth = new Date(expense.date).getMonth() + 1;
-    //     alert(expenseMonth)
-    //     return expense.category == itemFilter;
-    // })
+        const expenseMonth = new Date(expense.date).getMonth() + 1;
+        alert(expenseMonth)
+        return expense.category == itemFilter;
+    })
 
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
