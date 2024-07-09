@@ -16,7 +16,9 @@ dateInput.addEventListener('change', function() {
     day: '2-digit',
     year: 'numeric'
   });
-  formattedDate.textContent = formattedString;
+
+  return formattedString
+//   formattedDate.textContent = formattedString;
 });
 
 function addExpense() {
