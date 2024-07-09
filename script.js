@@ -12,7 +12,7 @@ dateInput.addEventListener('change', function() {
   const selectedDate = new Date(this.value);
   // Format the date here according to your preference
   const formattedString = selectedDate.toLocaleDateString('en-US', {
-    moth: '2-digit',
+    month: '2-digit',
     day: '2-digit',
     year: 'numeric'
   });
