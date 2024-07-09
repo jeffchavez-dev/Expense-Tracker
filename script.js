@@ -47,7 +47,7 @@ function addExpense() {
     const amount = parseFloat(document.getElementById('amount').value);
     // const date = new Date().toLocaleString();
 
-    const date = formattedString
+    const date = formatDate(dateInput)
     if (!category || !description || !amount) {
         alert('Please fill in all fields.');
         return;
