@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const dateInput = document.getElementById('myDate');
+const dateInput = document.getElementById('date-input');
 const formattedDate = document.getElementById('formattedDate');
 
 dateInput.addEventListener('change', function() {
