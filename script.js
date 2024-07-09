@@ -17,6 +17,7 @@ dateInput.addEventListener('change', function() {
     year: 'numeric'
   });
 
+  alert(formattedString)
   return formattedString
 //   formattedDate.textContent = formattedString;
 });
