@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBudgets();
 });
 
+
+
+const dateInput = document.getElementById('myDate');
+const formattedDate = document.getElementById('formattedDate');
+
+dateInput.addEventListener('change', function() {
+  const selectedDate = new Date(this.value);
+  // Format the date here according to your preference
+  const formattedString = selectedDate.toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  formattedDate.textContent = formattedString;
+});
+
 function addExpense() {
     const category = document.getElementById('category').value;
     const description = document.getElementById('description').value;
