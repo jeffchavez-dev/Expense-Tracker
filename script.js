@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const dateInput = document.getElementById('date-input');
 const formattedDate = document.getElementById('formattedDate');
-
+/*
 dateInput.addEventListener('change', function() {
   const selectedDate = new Date(this.value);
   // Format the date here according to your preference
@@ -21,13 +21,33 @@ dateInput.addEventListener('change', function() {
   return formattedString
 //   formattedDate.textContent = formattedString;
 });
+*/
+
+
+function formatDate(dateInput) {
+    const selectedDate = new Date(dateInput.value);
+    const formattedString = selectedDate.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+    return formattedString;
+  }
+
+
+dateInput.addEventListener('change', function() {
+    const formattedValue = formatDate(this); // Call the formatDate function
+    formattedDate.textContent = formattedValue; // Use the returned value
+  });
+
 
 function addExpense() {
     const category = document.getElementById('category').value;
     const description = document.getElementById('description').value;
     const amount = parseFloat(document.getElementById('amount').value);
-    const date = new Date().toLocaleString();
+    // const date = new Date().toLocaleString();
 
+    const date = formattedString
     if (!category || !description || !amount) {
         alert('Please fill in all fields.');
         return;
