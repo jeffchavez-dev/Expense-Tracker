@@ -7,22 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const dateInput = document.getElementById('date-input');
 const formattedDate = document.getElementById('formattedDate');
-/*
-dateInput.addEventListener('change', function() {
-  const selectedDate = new Date(this.value);
-  // Format the date here according to your preference
-  const formattedString = selectedDate.toLocaleDateString('en-US', {
-    month: '2-digit',
-    day: '2-digit',
-    year: 'numeric'
-  });
-
-  alert(formattedString)
-  return formattedString
-//   formattedDate.textContent = formattedString;
-});
-*/
-
 
 function formatDate(dateInput) {
     const selectedDate = new Date(dateInput.value);
