@@ -67,10 +67,14 @@ function loadExpenses() {
 
     function getFilteredExpenses(monthFilter, itemFilter) {
         const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        return monthFilter === 'all' ? expenses : expenses.filter(expense => {
-          const expenseMonth = new Date(expense.date).getMonth() + 1;
-          return expenseMonth == monthFilter && expense.category === itemFilter && itemFilter !== 'all';
-        });
+        if (monthFilter === 'all') {
+            return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
+        } else {
+            return expenses.filter(expense => {
+                const expenseMonth = new Date(expense.date).getMonth() + 1;
+                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter);
+            });
+        }
       }
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
