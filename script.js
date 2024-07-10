@@ -156,6 +156,7 @@ function updateBudgetStatus(filteredExpenses) {
 
     const monthFilter = document.getElementById('monthFilter').value;
     const budgetMonth = document.getElementById('budget-month');
+    budgetMonth.innerHTML = monthFilter;
     const statusDiv = document.getElementById('budgetStatus');
     statusDiv.innerHTML = '';
 
