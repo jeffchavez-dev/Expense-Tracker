@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const dateInput = document.getElementById('date-input');
-const formattedDate = document.getElementById('formattedDate');
 
 function formatDate(dateInput) {
     const selectedDate = new Date(dateInput.value);
