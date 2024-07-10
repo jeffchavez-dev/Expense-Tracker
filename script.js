@@ -19,12 +19,6 @@ function formatDate(dateInput) {
   }
 
 
-dateInput.addEventListener('change', function() {
-    const formattedValue = formatDate(this); // Call the formatDate function
-    formattedDate.textContent = formattedValue; // Use the returned value
-  });
-
-
 function addExpense() {
     const category = document.getElementById('category').value;
     const description = document.getElementById('description').value;
