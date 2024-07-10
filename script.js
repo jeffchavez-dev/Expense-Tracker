@@ -136,6 +136,8 @@ function loadBudgets() {
 }
 
 function updateBudgetStatus(filteredExpenses) {
+
+    
     const expenses = filteredExpenses || JSON.parse(localStorage.getItem('expenses')) || [];
     const budgets = JSON.parse(localStorage.getItem('budgets')) || {};
 
@@ -152,6 +154,8 @@ function updateBudgetStatus(filteredExpenses) {
         budgetStatus[expense.category] += expense.amount;
     });
 
+    const monthFilter = document.getElementById('monthFilter').value;
+    const budgetMonth = document.getElementById('budget-month');
     const statusDiv = document.getElementById('budgetStatus');
     statusDiv.innerHTML = '';
 
