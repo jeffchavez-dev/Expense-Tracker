@@ -69,7 +69,7 @@ function loadExpenses() {
         const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         return monthFilter === 'all' ? expenses : expenses.filter(expense => {
           const expenseMonth = new Date(expense.date).getMonth() + 1;
-          return expenseMonth == monthFilter && expense.category === itemFilter;
+          return expenseMonth == monthFilter && expense.category === itemFilter && itemFilter !== 'all';
         });
       }
 
