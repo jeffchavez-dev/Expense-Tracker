@@ -81,6 +81,8 @@ function loadExpenses() {
         expense.description.toLowerCase().includes(searchItem)
     })
 
+    const searchBtn = document.getElementById('search-btn')
+    alert(filteredSearch)
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
 
