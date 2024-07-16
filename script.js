@@ -55,7 +55,7 @@ function loadExpenses() {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
     
-    const searchItem = document.getElementById('search-items').value.toLowerCase();
+    
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
 
@@ -74,6 +74,13 @@ function loadExpenses() {
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
     let total = 0;
+
+    const searchItem = document.getElementById('search-items').value.toLowerCase();
+    const filteredSearch = filteredExpenses.filter(expense => {
+        expense.category.toLowerCase().includes(searchItem) ||
+        expense.description.toLowerCase().includes(searchItem)
+    })
+
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
 
