@@ -84,13 +84,15 @@ function loadExpenses(searchTerm) {
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
     const filteredSearch = filteredExpenses.filter(expense => {
-        expense.category.toLowerCase().includes(searchTerm) ||
-        expense.description.toLowerCase().includes(searchTerm)
+        return expense.category.toLowerCase().includes(searchTerm) || expense.description.toLowerCase().includes(searchTerm)
     })
 
     console.log(filteredSearch)
     let total = 0;
-    filteredExpenses.forEach((expense, index) => {
+    filteredSearch.forEach((expense, index) => {
+        console.log(filteredSearch)
+        console.log(`expense: ${expense.date}`)
+        console.log(`index: ${index}`)
         const row = expensesTable.insertRow();
 
         // Format the date
