@@ -53,7 +53,10 @@ clearFiltersButton.addEventListener('click', () => {
 const searchBtn = document.getElementById('search-btn')
 const searchInput = document.getElementById('search-input');
 searchBtn.addEventListener('click', () => {
-    alert(searchInput.value.toLowerCase())
+    const searchTerm = searchInput.value.toLowerCase(); // Get the search term from the input
+    // Call loadExpenses to refresh the table with search results
+    loadExpenses(searchTerm); // Pass the search term to loadExpenses
+    alert(searchTerm)
 })
 
 
