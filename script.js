@@ -49,9 +49,6 @@ clearFiltersButton.addEventListener('click', () => {
     loadExpenses(); // Call loadExpenses to re-render with no filters
 })
 
-// function searchExpenses() {
-//     alert("filteredSearch")
-// }
 
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
@@ -83,13 +80,13 @@ function loadExpenses() {
         expense.category.toLowerCase().includes(searchItem) ||
         expense.description.toLowerCase().includes(searchItem)
     })
+
+    const searchBtn = document.getElementById('search-btn')
     
-    function searchExpenses() {
-        alert(filteredSearch)
-    }
-    
-    searchExpenses
-    // alert(filteredSearch)
+    searchBtn.addEventListener('click', () => {
+        alert(searchItem)
+    })
+  
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
 
