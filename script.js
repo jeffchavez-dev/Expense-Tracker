@@ -56,11 +56,10 @@ searchBtn.addEventListener('click', () => {
     const searchTerm = searchInput.value.toLowerCase(); // Get the search term from the input
     // Call loadExpenses to refresh the table with search results
     loadExpenses(searchTerm); // Pass the search term to loadExpenses
-    alert(searchTerm)
 })
 
 
-function loadExpenses(searchTerm) {
+function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
@@ -83,11 +82,13 @@ function loadExpenses(searchTerm) {
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
-    const filteredSearch = filteredExpenses.filter(expense => {
+    const filteredSearch = searchTerm === '' ?
+        filteredExpenses :
+        filteredExpenses.filter(expense => {
         return expense.category.toLowerCase().includes(searchTerm) || expense.description.toLowerCase().includes(searchTerm)
     })
 
-    console.log(filteredSearch)
+   
     let total = 0;
     filteredSearch.forEach((expense, index) => {
         console.log(filteredSearch)
