@@ -55,7 +55,7 @@ function loadExpenses() {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
     
-    const searchItem = document.getElementById('search-items')
+    const searchItem = document.getElementById('search-items').value.toLowerCase();
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
 
