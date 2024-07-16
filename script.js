@@ -75,7 +75,7 @@ function loadExpenses() {
 
     let total = 0;
 
-    const searchItem = document.getElementById('search-items').value.toLowerCase();
+    const searchItem = document.getElementById('search-items');
     const filteredSearch = filteredExpenses.filter(expense => {
         expense.category.toLowerCase().includes(searchItem) ||
         expense.description.toLowerCase().includes(searchItem)
@@ -84,7 +84,7 @@ function loadExpenses() {
     const searchBtn = document.getElementById('search-btn')
     
     searchBtn.addEventListener('click', () => {
-        alert(searchItem)
+        alert(searchItem.value.toLowerCase())
     })
   
     filteredExpenses.forEach((expense, index) => {
