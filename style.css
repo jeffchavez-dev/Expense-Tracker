@@ -30,13 +30,11 @@ thead, tbody {
     font-size: .8em;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: var(--main);
-    margin-bottom: 1em;
+    margin-top: 1em;
 }
-h2 {
-    margin-top: 1.5em;
-}
+
 
 blockquote {
     font-size: 20px;
