@@ -77,8 +77,8 @@ function loadExpenses() {
 
     const searchItem = document.getElementById('search-items');
     const filteredSearch = filteredExpenses.filter(expense => {
-        expense.category.toLowerCase().includes(searchItem) ||
-        expense.description.toLowerCase().includes(searchItem)
+        expense.category.toLowerCase().includes(searchItem.value.toLowerCase()) ||
+        expense.description.toLowerCase().includes(searchItem.value.toLowerCase())
     })
 
     const searchBtn = document.getElementById('search-btn')
