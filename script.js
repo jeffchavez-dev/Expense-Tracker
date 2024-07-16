@@ -46,6 +46,7 @@ const clearFiltersButton = document.querySelector('.clearFiltersButton')
 clearFiltersButton.addEventListener('click', () => {
     document.getElementById('monthFilter').value = 'all';
     document.getElementById('itemFilter').value = 'all';
+    document.getElementById('search-input').value = '';
     loadExpenses(); // Call loadExpenses to re-render with no filters
 })
 
