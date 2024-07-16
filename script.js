@@ -50,6 +50,13 @@ clearFiltersButton.addEventListener('click', () => {
 })
 
 
+const searchBtn = document.getElementById('search-btn')
+const searchInput = document.getElementById('search-input');
+searchBtn.addEventListener('click', () => {
+    alert(searchInput.value.toLowerCase())
+})
+
+
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
@@ -73,20 +80,16 @@ function loadExpenses() {
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
-    let total = 0;
+   
 
-    const searchItem = document.getElementById('search-items');
-    const filteredSearch = filteredExpenses.filter(expense => {
-        expense.category.toLowerCase().includes(searchItem.value.toLowerCase()) ||
-        expense.description.toLowerCase().includes(searchItem.value.toLowerCase())
-    })
-
-    const searchBtn = document.getElementById('search-btn')
     
-    searchBtn.addEventListener('click', () => {
-        alert(searchItem.value.toLowerCase())
+    const filteredSearch = filteredExpenses.filter(expense => {
+        expense.category.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+        expense.description.toLowerCase().includes(searchInput.value.toLowerCase())
     })
-  
+
+
+    let total = 0;
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
 
