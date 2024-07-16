@@ -60,7 +60,7 @@ searchBtn.addEventListener('click', () => {
 })
 
 
-function loadExpenses() {
+function loadExpenses(searchTerm) {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
@@ -83,15 +83,12 @@ function loadExpenses() {
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
 
-   
-
-    
     const filteredSearch = filteredExpenses.filter(expense => {
-        expense.category.toLowerCase().includes(searchInput.value.toLowerCase()) ||
-        expense.description.toLowerCase().includes(searchInput.value.toLowerCase())
+        expense.category.toLowerCase().includes(searchTerm) ||
+        expense.description.toLowerCase().includes(searchTerm)
     })
 
-
+    console.log(filteredSearch)
     let total = 0;
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
