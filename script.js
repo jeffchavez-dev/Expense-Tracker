@@ -82,7 +82,15 @@ function loadExpenses() {
     })
 
     const searchBtn = document.getElementById('search-btn')
-    alert(filteredSearch)
+
+    function searchExpenses() {
+        alert(filteredSearch)
+    }
+
+    
+
+    
+    // alert(filteredSearch)
     filteredExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
 
