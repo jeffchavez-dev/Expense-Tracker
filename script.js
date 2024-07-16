@@ -49,6 +49,9 @@ clearFiltersButton.addEventListener('click', () => {
     loadExpenses(); // Call loadExpenses to re-render with no filters
 })
 
+function searchExpenses() {
+    alert("filteredSearch")
+}
 
 function loadExpenses() {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
@@ -86,9 +89,6 @@ function loadExpenses() {
     function searchExpenses() {
         alert(filteredSearch)
     }
-
-    
-
     
     // alert(filteredSearch)
     filteredExpenses.forEach((expense, index) => {
