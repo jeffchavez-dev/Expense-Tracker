@@ -83,7 +83,6 @@ function loadExpenses(searchTerm = '') {
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
     expensesTable.innerHTML = '';
     
-    
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
 
@@ -122,8 +121,6 @@ function loadExpenses(searchTerm = '') {
         "July", "August", "September", "October", "November", "December"];  
         const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
         
-
-
         row.insertCell(0).textContent = expense.date;
         row.insertCell(1).textContent = expense.category;
         row.insertCell(2).textContent = expense.description;
