@@ -70,9 +70,12 @@ let sortByCriteria = '';
 sortBtn.addEventListener('click', () => {
     if (sortByCriteria === '') {
         sortByCriteria = 'date';
+        alert(sortByCriteria)
     } else {
         sortByCriteria = '';
+        alert(sortByCriteria)
     }
+    
 })
 
 function loadExpenses(searchTerm = '') {
