@@ -132,7 +132,6 @@ function loadExpenses(searchTerm = '') {
             if (answer) {
                 deleteExpense(index);
             }
-           
         }
         row.insertCell(4).appendChild(deleteButton);
     });
