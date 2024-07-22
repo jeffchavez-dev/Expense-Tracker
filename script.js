@@ -70,10 +70,10 @@ let sortByCriteria = '';
 sortBtn.addEventListener('click', () => {
     if (sortByCriteria === '') {
         sortByCriteria = 'date';
-        alert(sortByCriteria)
+        console.log(sortByCriteria)
     } else {
         sortByCriteria = '';
-        alert(sortByCriteria)
+        console.log(sortByCriteria)
     }
 })
 
