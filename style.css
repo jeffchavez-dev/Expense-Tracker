@@ -62,3 +62,6 @@ button:hover {
 #expensesTable {
     max-width: 720px;
 }
+#sort-button {
+    cursor: pointer;
+}
