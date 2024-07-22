@@ -75,6 +75,7 @@ sortBtn.addEventListener('click', () => {
     } else {
         sortByCriteria = '';
         console.log(sortByCriteria)
+        loadExpenses()
     }
 })
 
