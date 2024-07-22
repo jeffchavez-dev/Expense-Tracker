@@ -64,10 +64,12 @@ function sortByDate(expenses) {
     return expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
 }
 
-const sortBtn   = document.getElementById('sort-button')
+const sortByDateBtn   = document.getElementById('sort-by-date-button')
+const sortByAmountBtn   = document.getElementById('sort-by-amount-button')
 
 let sortByCriteria = '';
 sortBtn.addEventListener('click', () => {
+    sortBtn.forEach((sort))
     if (sortByCriteria === '') {
         sortByCriteria = 'date';
         console.log(sortByCriteria)
