@@ -68,15 +68,14 @@ const sortByDateBtn   = document.getElementById('sort-by-date-button')
 const sortByAmountBtn   = document.getElementById('sort-by-amount-button')
 
 let sortByCriteria = '';
-sortBtn.addEventListener('click', () => {
-    sortBtn.forEach((sort))
+sortByDateBtn.addEventListener('click', () => {
     if (sortByCriteria === '') {
         sortByCriteria = 'date';
         console.log(sortByCriteria)
         loadExpenses()
     } else {
         sortByCriteria = '';
-        console.log(sortByCriteria)
+        console.log(sortByCriteria) 
         loadExpenses()
     }
 })
