@@ -60,6 +60,10 @@ searchBtn.addEventListener('click', () => {
 })
 
 
+function sortByDate(expenses) {
+    return expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
@@ -102,6 +106,7 @@ function loadExpenses(searchTerm = '') {
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];  
         const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
+        
 
 
         row.insertCell(0).textContent = expense.date;
