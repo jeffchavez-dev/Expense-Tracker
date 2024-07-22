@@ -96,9 +96,9 @@ function loadExpenses(searchTerm = '') {
     })
 
     const sortedExpenses = sortByDate(filteredExpenses)
-    
+
     let total = 0;
-    filteredSearch.forEach((expense, index) => {
+    sortedExpenses.forEach((expense, index) => {
         console.log(filteredSearch)
         console.log(`expense: ${expense.date}`)
         console.log(`index: ${index}`)
