@@ -95,7 +95,7 @@ function loadExpenses(searchTerm = '') {
         return expense.category.toLowerCase().includes(searchTerm) || expense.description.toLowerCase().includes(searchTerm)
     })
 
-   
+    const sortedExpenses = sortByDate(filteredExpenses)
     let total = 0;
     filteredSearch.forEach((expense, index) => {
         console.log(filteredSearch)
