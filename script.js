@@ -75,7 +75,6 @@ sortBtn.addEventListener('click', () => {
         sortByCriteria = '';
         alert(sortByCriteria)
     }
-    
 })
 
 function loadExpenses(searchTerm = '') {
@@ -110,9 +109,6 @@ function loadExpenses(searchTerm = '') {
 
     let total = 0;
     sortedExpenses.forEach((expense, index) => {
-        console.log(filteredSearch)
-        console.log(`expense: ${expense.date}`)
-        console.log(`index: ${index}`)
         const row = expensesTable.insertRow();
 
         // Format the date
