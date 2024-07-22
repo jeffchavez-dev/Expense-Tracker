@@ -131,8 +131,6 @@ function loadExpenses(searchTerm = '') {
             let answer = confirm(`Are you sure you want to delete ${expense.description}?`)
             if (answer) {
                 deleteExpense(index);
-            } else {
-
             }
            
         }
