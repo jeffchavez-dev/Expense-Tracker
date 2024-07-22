@@ -127,7 +127,15 @@ function loadExpenses(searchTerm = '') {
         total += expense.amount;
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteExpense(index);
+        deleteButton.onclick = () => {
+            let answer = confirm(`Are you sure you want to delete ${expense.description}?`)
+            if (answer) {
+                deleteExpense(index);
+            } else {
+
+            }
+           
+        }
         row.insertCell(4).appendChild(deleteButton);
     });
 
