@@ -69,7 +69,9 @@ const sortBtn   = document.getElementById('sort-button')
 let sortByCriteria = '';
 sortBtn.addEventListener('click', () => {
     if (sortByCriteria === '') {
-
+        sortByCriteria = 'date';
+    } else {
+        sortByCriteria = '';
     }
 })
 
