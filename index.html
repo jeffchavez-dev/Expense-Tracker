@@ -97,19 +97,6 @@
             <br> <br>
             <button class="clearFiltersButton">Clear All</button>
 
-            <h2>Expenses</h2>
-            <table id="expensesTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
             <h2>₱  Total Expenses: <span id="totalExpenses">0</span></h2>
             <h2>Budget per Category</h2>
             <div class="form-control">
@@ -139,6 +126,21 @@
             <button onclick="saveBudgets()">Save Budgets</button>
             <h2>💰Budget Status for <span id="budget-month"></span></h2>
             <div id="budgetStatus"></div>
+
+            <h2>Expenses</h2>
+            <table id="expensesTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
     </div>
     
     <script src="script.js"></script>
