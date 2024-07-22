@@ -66,9 +66,11 @@ function sortByDate(expenses) {
 
 const sortBtn   = document.getElementById('sort-button')
 
-let sortByCriteria = 'date';
+let sortByCriteria = '';
 sortBtn.addEventListener('click', () => {
-    
+    if (sortByCriteria === '') {
+
+    }
 })
 
 function loadExpenses(searchTerm = '') {
