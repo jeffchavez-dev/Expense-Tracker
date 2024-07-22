@@ -64,6 +64,8 @@ function sortByDate(expenses) {
     return expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
 
+
+
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
