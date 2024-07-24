@@ -71,10 +71,9 @@ sortByAmountBtn.addEventListener('click', () => {
 
 })
 
-let sortByCriteria = '';
+let sortByCriteria = 'date';
 sortByDateBtn.addEventListener('click', () => {
-    if (sortByCriteria === '') {
-        sortByCriteria = 'date';
+    if (sortByCriteria === 'date') {
         console.log(sortByCriteria)
         loadExpenses()
     } else {
