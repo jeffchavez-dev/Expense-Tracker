@@ -68,7 +68,7 @@ const sortByDateBtn   = document.getElementById('sort-by-date-button')
 const sortByAmountBtn   = document.getElementById('sort-by-amount-button')
 
 sortByAmountBtn.addEventListener('click', () => {
-    
+
 })
 
 let sortByCriteria = '';
@@ -105,7 +105,6 @@ function loadExpenses(searchTerm = '') {
       }
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
-
     const filteredSearch = searchTerm === '' ?
         filteredExpenses :
         filteredExpenses.filter(expense => {
@@ -117,12 +116,11 @@ function loadExpenses(searchTerm = '') {
     let total = 0;
     sortedExpenses.forEach((expense, index) => {
         const row = expensesTable.insertRow();
-
         // Format the date
         const dateObject = new Date(expense.date);
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];  
-        const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
+        // const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
         
         row.insertCell(0).textContent = expense.date;
         row.insertCell(1).textContent = expense.category;
