@@ -120,7 +120,6 @@ function loadExpenses(searchTerm = '') {
         const dateObject = new Date(expense.date);
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];  
-        // const formattedDate = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}, ${dateObject.getFullYear()}`;
         
         row.insertCell(0).textContent = expense.date;
         row.insertCell(1).textContent = expense.category;
