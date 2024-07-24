@@ -64,8 +64,8 @@ function sortByDate(expenses) {
     return expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
 }
 
-const sortByDateBtn   = document.getElementById('sort-by-date-button')
-const sortByAmountBtn   = document.getElementById('sort-by-amount-button')
+const sortByDateBtn   = document.getElementById('sort-by-date-btn')
+const sortByAmountBtn   = document.getElementById('sort-by-amount-btn')
 
 sortByAmountBtn.addEventListener('click', () => {
 
