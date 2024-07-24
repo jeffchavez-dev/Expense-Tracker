@@ -67,6 +67,10 @@ function sortByDate(expenses) {
 const sortByDateBtn   = document.getElementById('sort-by-date-button')
 const sortByAmountBtn   = document.getElementById('sort-by-amount-button')
 
+sortByAmountBtn.addEventListener('click', () => {
+    
+})
+
 let sortByCriteria = '';
 sortByDateBtn.addEventListener('click', () => {
     if (sortByCriteria === '') {
