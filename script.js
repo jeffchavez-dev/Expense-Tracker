@@ -80,8 +80,11 @@ sortByDateBtn.addEventListener('click', () => {
         loadExpenses()
     }
 })
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
 let currentDate = new Date
-console.log(currentDate)
+console.log(currentDate.getMonth())
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
