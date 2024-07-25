@@ -80,7 +80,8 @@ sortByDateBtn.addEventListener('click', () => {
         loadExpenses()
     }
 })
-
+let currentDate = new Date
+console.log(currentDate)
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
@@ -88,7 +89,7 @@ function loadExpenses(searchTerm = '') {
     
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
-
+    
     function getFilteredExpenses(monthFilter, itemFilter) {
         const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
