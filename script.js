@@ -88,6 +88,8 @@ const currentMonth  = monthNames[currentDate.getMonth()]
 console.log(currentMonth)
 const setCurrentMonth = document.getElementById('monthFilter')
 
+setCurrentMonth.selectedIndex.innerText = currentMonth
+
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
