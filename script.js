@@ -99,9 +99,9 @@ function loadExpenses(searchTerm = '') {
     const monthFilter = document.getElementById('monthFilter').value;
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
-    
+
     function getFilteredExpenses(monthFilter, itemFilter) {
-        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
         } else {
