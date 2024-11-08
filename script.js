@@ -97,6 +97,8 @@ function loadExpenses(searchTerm = '') {
     
     const itemFilter = document.getElementById('itemFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
+    const dateRangeFilter = document.getElementById('date-range-filter').checked;
+
     
     function getFilteredExpenses(monthFilter, itemFilter) {
         const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
