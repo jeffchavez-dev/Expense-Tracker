@@ -25,18 +25,20 @@ function addExpense() {
     // const date = new Date().toLocaleString();
 
     const date = formatDate(dateInput)
-    if (!category || !description || !amount) {
+    const cutOff = document.getElementById('cut-off').value
+    if (!category || !description || !amount || !cutOff) {
         alert('Please fill in all fields.');
         return;
     }
 
-    const expense = { date, category, description, amount };
+    const expense = { date, category, description, amount , cutOff};
     let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     expenses.push(expense);
     localStorage.setItem('expenses', JSON.stringify(expenses));
 
     document.getElementById('description').value = '';
     document.getElementById('amount').value = '';
+    document.getElementById('cut-off').value = '';
 
     loadExpenses();
 }
