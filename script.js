@@ -96,11 +96,12 @@ function loadExpenses(searchTerm = '') {
     expensesTable.innerHTML = '';
     
     const itemFilter = document.getElementById('itemFilter').value
+    const cutOffFilter = document.getElementById('cutOffFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
 
-    function getFilteredExpenses(monthFilter, itemFilter) {
+    function getFilteredExpenses(monthFilter, itemFilter, cutOffFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
@@ -112,7 +113,7 @@ function loadExpenses(searchTerm = '') {
         }
       }
 
-    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
+    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter, cutOffFilter);    
     const filteredSearch = searchTerm === '' ?
         filteredExpenses :
         filteredExpenses.filter(expense => {
