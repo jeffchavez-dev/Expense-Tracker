@@ -100,7 +100,7 @@ function loadExpenses(searchTerm = '') {
     const itemFilter = document.getElementById('itemFilter').value
     const cutOffFilter = document.getElementById('cutOffFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
-    const dateRangeFilter = document.getElementById('date-range-filter').checked;
+    // const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
 
     function getFilteredExpenses(monthFilter, itemFilter, cutOffFilter) {
