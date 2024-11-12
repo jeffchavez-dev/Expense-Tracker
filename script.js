@@ -110,7 +110,7 @@ function loadExpenses(searchTerm = '') {
         } else {
             return expenses.filter(expense => {
                 const expenseMonth = new Date(expense.date).getMonth() + 1;
-                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter);
+                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) && (cutOff === 'all' || expense.cutOff === cutOffFilter);
             });
         }
       }
@@ -136,6 +136,7 @@ function loadExpenses(searchTerm = '') {
         row.insertCell(1).textContent = expense.category;
         row.insertCell(2).textContent = expense.description;
         row.insertCell(3).textContent = expense.amount;
+        row.insertCell(4).textContent = expense.cutOff;
         total += expense.amount;
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
