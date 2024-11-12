@@ -107,10 +107,14 @@ function loadExpenses(searchTerm = '') {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
-        } else {
+        } else if (cutOffFilter != 'all') {
+            alert("Cutoff filter")
+            return expenses.cutOff === cutOffFilter
+        }
+        else {
             return expenses.filter(expense => {
                 const expenseMonth = new Date(expense.date).getMonth() + 1;
-                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) && (cutOff === 'all' || expense.cutOff === cutOffFilter);
+                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) || (cutOffFilter === 'all' || expense.cutOff === cutOffFilter);
             });
         }
       }
