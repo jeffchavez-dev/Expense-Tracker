@@ -102,12 +102,12 @@ function loadExpenses(searchTerm = '') {
     const monthFilter = document.getElementById('monthFilter').value;
     // const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
-
+    console.log(cutOffFilter)
     function getFilteredExpenses(monthFilter, itemFilter, cutOffFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
-        } else if (cutOffFilter != 'all') {
+        } else if (cutOffFilter !== 'all') {
             alert("Cutoff filter")
             return expenses.cutOff === cutOffFilter
         }
