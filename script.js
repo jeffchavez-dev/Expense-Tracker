@@ -63,7 +63,7 @@ searchBtn.addEventListener('click', () => {
 
 
 function sortByDate(expenses) {
-    return expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
+    return expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 const sortByDateBtn   = document.getElementById('sort-by-date-btn')
