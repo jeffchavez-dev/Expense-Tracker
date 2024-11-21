@@ -95,25 +95,7 @@ const setCurrentMonth = document.getElementById('monthFilter')
 setCurrentMonth.selectedIndex.innerText = currentMonth
 
 
-const dateRangeFilter = document.getElementById('date-range-filter');
 
-dateRangeFilter.addEventListener('change', () => {
-    startDateInput.disabled = !dateRangeFilter.checked;
-    endDateInput.disabled = !dateRangeFilter.checked;
-    loadExpenses();
-});
-
-startDateInput.addEventListener('change', () => {
-    if (dateRangeFilter.checked) {
-      loadExpenses();
-    }
-  });
-  
-  endDateInput.addEventListener('change', () => {
-    if (dateRangeFilter.checked) {
-      loadExpenses();
-    }
-  });
 
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
@@ -127,12 +109,13 @@ function loadExpenses(searchTerm = '') {
     
     function getFilteredExpenses(monthFilter, itemFilter, dateRangeFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        let filteredExpenses = expenses;
 
         if (dateRangeFilter) {
             const startDate = new Date(startDateInput.value);
             const endDate = new Date(endDateInput.value);
             alert(`${startDate} to ${endDate}`)
-            expenses = expenses.filter(expense => {
+            filteredExpenses = expenses.filter(expense => {
                 const expenseDate = new Date(expense.date);
                 return expenseDate >= startDate && expenseDate <= endDate;
             });
@@ -145,6 +128,7 @@ function loadExpenses(searchTerm = '') {
                 return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) ;
             });
         }
+        return filteredExpenses;
       }
 
     const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter, dateRangeFilter);    
@@ -183,6 +167,31 @@ function loadExpenses(searchTerm = '') {
     document.getElementById('totalExpenses').textContent = total.toFixed(2);
     updateBudgetStatus(filteredExpenses);
 }
+
+
+
+const dateRangeFilter = document.getElementById('date-range-filter');
+
+dateRangeFilter.addEventListener('change', () => {
+    startDateInput.disabled = !dateRangeFilter.checked;
+    endDateInput.disabled = !dateRangeFilter.checked;
+    loadExpenses();
+});
+
+startDateInput.addEventListener('change', () => {
+    if (dateRangeFilter.checked) {
+      loadExpenses();
+    }
+  });
+  
+  endDateInput.addEventListener('change', () => {
+    if (dateRangeFilter.checked) {
+      loadExpenses();
+    }
+  });
+
+
+  
 
 function deleteExpense(index) {
     let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
