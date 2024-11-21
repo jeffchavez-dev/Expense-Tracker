@@ -25,7 +25,6 @@ function addExpense() {
     // const date = new Date().toLocaleString();
 
     const date = formatDate(dateInput)
-    const cutOff = document.getElementById('cut-off').value
     if (!category || !description || !amount || !cutOff) {
         alert('Please fill in all fields.');
         return;
@@ -38,7 +37,7 @@ function addExpense() {
 
     document.getElementById('description').value = '';
     document.getElementById('amount').value = '';
-    document.getElementById('cut-off').value = '';
+
 
     loadExpenses();
 }
