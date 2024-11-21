@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const dateInput = document.getElementById('date-input');
+const startDateInput = document.getElementById('date-range-input start-date');
+const endDateInput = document.getElementById('date-range-input end-date');
+
 
 function formatDate(dateInput) {
     const selectedDate = new Date(dateInput.value);
@@ -100,8 +103,8 @@ function loadExpenses(searchTerm = '') {
     const monthFilter = document.getElementById('monthFilter').value;
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
     
-    const startDateInput = document.getElementById('date-range-input start-date');
-    const endDateInput = document.getElementById('date-range-input end-date');
+
+    
     
     function getFilteredExpenses(monthFilter, itemFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
