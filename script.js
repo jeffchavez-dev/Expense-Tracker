@@ -216,3 +216,32 @@ function updateBudgetStatus(filteredExpenses) {
         statusDiv.appendChild(status);
     }
 }
+
+
+function downloadExpenses() {
+    // Get the table data
+    const table = document.getElementById('expensesTable');
+    const rows = table.querySelectorAll('tr');
+  
+    // Prepare the CSV data
+    let csvContent = "Date,Category,Description,Amount,Cut-Off\n";
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      const cellValues = [];
+      cells.forEach(cell => {
+        cellValues.push(cell.textContent.trim());
+      });
+      csvContent += cellValues.join(',') + '\n';
+    });
+  
+    // Create a temporary link to download the CSV
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download   
+   = 'expenses.csv';
+    link.click();
+    URL.revokeObjectURL(url);   
+  
+  }
