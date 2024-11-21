@@ -101,19 +101,19 @@ function loadExpenses(searchTerm = '') {
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
 
-    function getFilteredExpenses(monthFilter, itemFilter, cutOffFilter) {
+    function getFilteredExpenses(monthFilter, itemFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
         } else {
             return expenses.filter(expense => {
                 const expenseMonth = new Date(expense.date).getMonth() + 1;
-                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) || (cutOffFilter === 'all' || expense.cutOff === cutOffFilter);
+                return expenseMonth == monthFilter && (itemFilter === 'all' || expense.category === itemFilter) ;
             });
         }
       }
 
-    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter, cutOffFilter);    
+    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
     const filteredSearch = searchTerm === '' ?
         filteredExpenses :
         filteredExpenses.filter(expense => {
