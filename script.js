@@ -94,6 +94,27 @@ const setCurrentMonth = document.getElementById('monthFilter')
 
 setCurrentMonth.selectedIndex.innerText = currentMonth
 
+
+const dateRangeFilter = document.getElementById('date-range-filter');
+
+dateRangeFilter.addEventListener('change', () => {
+    startDateInput.disabled = !dateRangeFilter.checked;
+    endDateInput.disabled = !dateRangeFilter.checked;
+    loadExpenses();
+});
+
+startDateInput.addEventListener('change', () => {
+    if (dateRangeFilter.checked) {
+      loadExpenses();
+    }
+  });
+  
+  endDateInput.addEventListener('change', () => {
+    if (dateRangeFilter.checked) {
+      loadExpenses();
+    }
+  });
+
 function loadExpenses(searchTerm = '') {
     const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     const expensesTable = document.getElementById('expensesTable').getElementsByTagName('tbody')[0];
@@ -107,7 +128,6 @@ function loadExpenses(searchTerm = '') {
     if (dateRangeFilter) {
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
-
         const filteredByDateRange = expenses.filter(expense => {
             const expenseDate = new Date(expense.date);
             return expenseDate >= startDate && expenseDate <= endDate;
