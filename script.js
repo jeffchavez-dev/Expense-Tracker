@@ -104,7 +104,15 @@ function loadExpenses(searchTerm = '') {
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
     
 
-    
+    if (dateRangeFilter) {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        const filteredByDateRange = expenses.filter(expense => {
+            const expenseDate = new Date(expense.date);
+            return expenseDate >= startDate && expenseDate <= endDate;
+        });
+    }
     
     function getFilteredExpenses(monthFilter, itemFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
