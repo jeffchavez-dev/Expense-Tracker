@@ -51,6 +51,7 @@ clearFiltersButton.addEventListener('click', () => {
     document.getElementById('monthFilter').value = 'all';
     document.getElementById('itemFilter').value = 'all';
     document.getElementById('search-input').value = '';
+    document.getElementById('date-range-input').value = '';
     loadExpenses(); // Call loadExpenses to re-render with no filters
 })
 
@@ -191,7 +192,7 @@ startDateInput.addEventListener('change', () => {
   });
 
 
-  
+
 
 function deleteExpense(index) {
     let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
