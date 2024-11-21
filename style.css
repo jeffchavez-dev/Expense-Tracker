@@ -15,6 +15,11 @@
 .expense-tracker {
     z-index: 1;
 }
+
+.range-filter {
+    display: flex;
+    gap: 1em;
+}
 .background {
     background-image: url('/asset/10633-istockgetty-images-plusindysystem.jpeg');
     background-size: cover;
