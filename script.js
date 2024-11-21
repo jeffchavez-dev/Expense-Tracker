@@ -128,7 +128,8 @@ function loadExpenses(searchTerm = '') {
     if (dateRangeFilter) {
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
-        const filteredByDateRange = expenses.filter(expense => {
+
+        const filteredExpenses = expenses.filter(expense => {
             const expenseDate = new Date(expense.date);
             return expenseDate >= startDate && expenseDate <= endDate;
         });
