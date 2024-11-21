@@ -135,8 +135,18 @@ function loadExpenses(searchTerm = '') {
         });
     }
     
-    function getFilteredExpenses(monthFilter, itemFilter) {
+    function getFilteredExpenses(monthFilter, itemFilter, dateRangeFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+        if (dateRangeFilter) {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+            alert(startDate)
+            expenses = expenses.filter(expense => {
+                const expenseDate = new Date(expense.date);
+                return expenseDate >= startDate && expenseDate <= endDate;
+            });
+        }
         if (monthFilter === 'all') {
             return itemFilter === 'all'? expenses : expenses.filter(expense => expense.category === itemFilter);
         } else {
@@ -147,7 +157,7 @@ function loadExpenses(searchTerm = '') {
         }
       }
 
-    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter);    
+    const filteredExpenses = getFilteredExpenses(monthFilter, itemFilter, dateRangeFilter);    
     const filteredSearch = searchTerm === '' ?
         filteredExpenses :
         filteredExpenses.filter(expense => {
