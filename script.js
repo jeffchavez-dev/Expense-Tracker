@@ -134,7 +134,6 @@ function loadExpenses(searchTerm = '') {
         row.insertCell(1).textContent = expense.category;
         row.insertCell(2).textContent = expense.description;
         row.insertCell(3).textContent = expense.amount;
-        row.insertCell(4).textContent = expense.cutOff;
         total += expense.amount;
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
@@ -222,7 +221,7 @@ function downloadExpenses() {
     const rows = table.querySelectorAll('tr');
   
     // Prepare the CSV data
-    let csvContent = "Date,Category,Description,Amount,Cut-Off\n";
+    let csvContent = "Date,Category,Description,Amount\n";
     rows.forEach(row => {
       const cells = row.querySelectorAll('td');
       const cellValues = [];
