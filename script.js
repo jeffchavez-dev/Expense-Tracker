@@ -124,16 +124,6 @@ function loadExpenses(searchTerm = '') {
     const monthFilter = document.getElementById('monthFilter').value;
     const dateRangeFilter = document.getElementById('date-range-filter').checked;
     
-
-    if (dateRangeFilter) {
-        const startDate = new Date(startDateInput.value);
-        const endDate = new Date(endDateInput.value);
-
-        const filteredExpenses = expenses.filter(expense => {
-            const expenseDate = new Date(expense.date);
-            return expenseDate >= startDate && expenseDate <= endDate;
-        });
-    }
     
     function getFilteredExpenses(monthFilter, itemFilter, dateRangeFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
@@ -141,7 +131,7 @@ function loadExpenses(searchTerm = '') {
         if (dateRangeFilter) {
             const startDate = new Date(startDateInput.value);
             const endDate = new Date(endDateInput.value);
-            alert(startDate)
+            alert(`${startDate} to ${endDate}`)
             expenses = expenses.filter(expense => {
                 const expenseDate = new Date(expense.date);
                 return expenseDate >= startDate && expenseDate <= endDate;
