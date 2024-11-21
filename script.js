@@ -25,12 +25,12 @@ function addExpense() {
     // const date = new Date().toLocaleString();
 
     const date = formatDate(dateInput)
-    if (!category || !description || !amount || !cutOff) {
+    if (!category || !description || !amount ) {
         alert('Please fill in all fields.');
         return;
     }
 
-    const expense = { date, category, description, amount , cutOff};
+    const expense = { date, category, description, amount };
     let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     expenses.push(expense);
     localStorage.setItem('expenses', JSON.stringify(expenses));
@@ -97,11 +97,10 @@ function loadExpenses(searchTerm = '') {
     expensesTable.innerHTML = '';
     
     const itemFilter = document.getElementById('itemFilter').value
-    const cutOffFilter = document.getElementById('cutOffFilter').value
     const monthFilter = document.getElementById('monthFilter').value;
-    // const dateRangeFilter = document.getElementById('date-range-filter').checked;
+    const dateRangeFilter = document.getElementById('date-range-filter').checked;
 
-    console.log(cutOffFilter)
+
     function getFilteredExpenses(monthFilter, itemFilter, cutOffFilter) {
         // const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
         if (monthFilter === 'all') {
